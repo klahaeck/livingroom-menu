@@ -2,7 +2,7 @@ const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
 // const fs = require('fs');
 // const url = require('url');
-const appUpdater = require('./autoupdater');
+const { appUpdater } = require('./autoupdater');
 const isDev = require('electron-is-dev');
 
 let tray;

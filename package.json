@@ -1,6 +1,6 @@
 {
   "name": "livingroom-menubar",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Kla Haeck",
   "description": "control the livingromm music from the menubar",
   "private": true,
@@ -37,9 +37,7 @@
     "productName": "Livingroom Menu",
     "publish": [
       {
-        "provider": "github",
-        "releaseType": "release",
-        "private": false
+        "provider": "github"
       }
     ],
     "files": [
@@ -50,7 +48,7 @@
     },
     "mac": {
       "category": "public.app-category.productivity",
-      "identity": "Mac Developer: username (klahaeck)",
+      "identity": "Mac Developer: Kla Haeck (klahaeck)",
       "target": [
         "dmg"
       ]

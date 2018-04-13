@@ -1,33 +1,32 @@
-const { app, BrowserWindow, ipcMain, Tray } = require('electron');
-const { autoUpdater } = require('electron-updater');
-
+const { app, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
 // const fs = require('fs');
 // const url = require('url');
+const appUpdater = require('./autoupdater');
 const isDev = require('electron-is-dev');
 
 let tray;
 let window;
 
-// app.dock.hide();
+app.dock.hide();
 
 app.on('ready', () => {
-  // const contextMenu = Menu.buildFromTemplate([
-  //   { label: 'Quit', click: () => { app.quit(); } }
-  // ]);
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Quit', click: () => { app.quit(); } }
+  ]);
 
   // Setup the menubar with an icon
   // let icon = nativeImage.createFromDataURL(base64Icon);
   tray = new Tray(path.join(__dirname, 'Template.png'));
 
-  // tray.setContextMenu(contextMenu);
   tray.setToolTip('Fallon Living Room Remote');
 
-  // Add a click handler so that when the user clicks on the menubar icon, it shows
-  // our popup window
   tray.on('click', function(event) {
-    // tray.setContextMenu(null);
-    toggleWindow();
+    if (event.altKey) {
+      tray.popUpContextMenu(contextMenu);
+    } else {
+      toggleWindow();
+    }
 
     // Show devtools when command clicked
     if (window.isVisible() && process.defaultApp && event.metaKey) {
@@ -35,11 +34,10 @@ app.on('ready', () => {
     }
   });
 
-  // tray.on('right-click', function() {
-  //   tray.setContextMenu(contextMenu);
-  // });
+  tray.on('right-click', function() {
+    tray.popUpContextMenu(contextMenu);
+  });
 
-  // Make the popup window for the menubar
   window = new BrowserWindow({
     width: 300,
     height: 320,
@@ -48,8 +46,8 @@ app.on('ready', () => {
     resizable: false,
     darkTheme: true,
     // skipTaskbar: true
-    useContentSize: true,
-    icon: path.join(__dirname, 'icon.png')
+    // useContentSize: true,
+    // icon: path.join(__dirname, 'icon.png')
     // autoHideMenuBar: true
   });
 
@@ -73,17 +71,10 @@ app.on('ready', () => {
     }
   });
 
-  autoUpdater.checkForUpdates();
-});
-
-// when the update has been downloaded and is ready to be installed, notify the BrowserWindow
-autoUpdater.on('update-downloaded', (info) => {
-  window.webContents.send('updateReady');
-});
-
-// when receiving a quitAndInstall signal, quit and install the new version ;)
-ipcMain.on('quitAndInstall', (event, arg) => {
-  autoUpdater.quitAndInstall();
+  if (!isDev) {
+    // Initate auto-updates on macOs and windows
+    appUpdater();
+  }
 });
 
 const toggleWindow = () => {
@@ -111,10 +102,6 @@ const showWindow = () => {
   window.show();
   window.focus();
 };
-
-ipcMain.on('show-window', () => {
-  showWindow();
-});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

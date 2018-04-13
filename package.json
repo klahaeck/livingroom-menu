@@ -1,6 +1,6 @@
 {
   "name": "livingroom-menubar",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "author": "Kla Haeck",
   "description": "control the livingromm music from the menubar",
   "private": true,
@@ -35,6 +35,13 @@
   "build": {
     "appId": "com.fallon.livingroom-menu",
     "productName": "Livingroom Menu",
+    "publish": [
+      {
+        "provider": "github",
+        "releaseType": "release",
+        "private": false
+      }
+    ],
     "files": [
       "build/**/*"
     ],

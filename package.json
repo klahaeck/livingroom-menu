@@ -22,7 +22,9 @@
     "eject": "react-scripts eject",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "electron-pack": "electron-builder",
-    "preelectron-pack": "yarn build"
+    "preelectron-pack": "yarn build",
+    "electron-ship": "electron-builder -p always",
+    "preelectron-ship": "yarn build"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",

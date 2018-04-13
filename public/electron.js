@@ -12,6 +12,8 @@ app.dock.hide();
 
 app.on('ready', () => {
   const contextMenu = Menu.buildFromTemplate([
+    { label: 'Check For Updates', click: () => { appUpdater(); } },
+    { type: 'separator' },
     { label: 'Quit', click: () => { app.quit(); } }
   ]);
 
@@ -71,10 +73,10 @@ app.on('ready', () => {
     }
   });
 
-  // if (!isDev) {
-  // Initate auto-updates on macOs and windows
-  appUpdater();
-  // }
+  if (!isDev) {
+    // Initate auto-updates on macOs and windows
+    appUpdater();
+  }
 });
 
 const toggleWindow = () => {

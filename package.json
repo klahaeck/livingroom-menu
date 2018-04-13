@@ -1,6 +1,6 @@
 {
   "name": "livingroom-menubar",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "Kla Haeck",
   "description": "control the livingromm music from the menubar",
   "private": true,

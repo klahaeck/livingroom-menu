@@ -5,7 +5,6 @@ import PlayPause from './components/PlayPause';
 import ButtonTrack from './components/ButtonTrack';
 import VolumeControl from './components/VolumeControl';
 import TextSpeak from './components/TextSpeak';
-import { ipcRenderer } from 'electron';
 
 import './neon-glow/css/bootstrap4-neon-glow.min.css';
 import './App.css';
@@ -18,7 +17,7 @@ class App extends Component {
       updates: false
     };
 
-    ipcRenderer.on('updateReady', function(event, text) {
+    window.ipcRenderer.on('updateReady', function(event, text) {
       this.setState({updates: true});
     });
   }
@@ -28,7 +27,7 @@ class App extends Component {
       return (
         <Row>
           <Col>
-            <Button onClick={() => ipcRenderer.send('quitAndInstall')}>Click To Update</Button>
+            <Button className="btn-sm btn-primary w-100" onClick={() => window.ipcRenderer.send('quitAndInstall')}>Click To Update</Button>
           </Col>
         </Row>
       );

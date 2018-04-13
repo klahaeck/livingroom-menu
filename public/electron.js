@@ -78,7 +78,7 @@ app.on('ready', () => {
 
 // when the update has been downloaded and is ready to be installed, notify the BrowserWindow
 autoUpdater.on('update-downloaded', (info) => {
-  window.webContents.send('updateReady')
+  window.webContents.send('updateReady');
 });
 
 // when receiving a quitAndInstall signal, quit and install the new version ;)

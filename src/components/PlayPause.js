@@ -17,7 +17,7 @@ class PlayPause extends Component {
 
   render() {
     return (
-      <Button className="btn btn-primary btn-sm w-100" onClick={() => this.onClickHandler()}>Play/Pause</Button>
+      <Button className="btn-primary btn-sm w-100" onClick={() => this.onClickHandler()}>Play/Pause</Button>
     );
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "livingroom-menubar",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "author": "Kla Haeck",
   "description": "control the livingromm music from the menubar",
   "private": true,
@@ -48,10 +48,7 @@
     },
     "mac": {
       "category": "public.app-category.productivity",
-      "identity": "Mac Developer: Kla Haeck (klahaeck)",
-      "target": [
-        "dmg"
-      ]
+      "identity": "Mac Developer: Kla Haeck (klahaeck)"
     }
   }
 }

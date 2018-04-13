@@ -71,10 +71,10 @@ app.on('ready', () => {
     }
   });
 
-  if (!isDev) {
-    // Initate auto-updates on macOs and windows
-    appUpdater();
-  }
+  // if (!isDev) {
+  // Initate auto-updates on macOs and windows
+  appUpdater();
+  // }
 });
 
 const toggleWindow = () => {

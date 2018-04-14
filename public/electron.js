@@ -12,7 +12,7 @@ app.dock.hide();
 
 app.on('ready', () => {
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Check For Updates', click: () => appUpdater() },
+    // { label: 'Check For Updates', click: () => appUpdater() },
     { label: 'Console', click: () => window.openDevTools({detach: true}) },
     { type: 'separator' },
     { label: 'Quit', click: () => app.quit() }

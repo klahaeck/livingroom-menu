@@ -1,6 +1,6 @@
 {
   "name": "livingroom-menubar",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "author": "Kla Haeck",
   "description": "control the livingromm music from the menubar",
   "private": true,
@@ -8,6 +8,7 @@
   "homepage": "./",
   "dependencies": {
     "electron-is-dev": "^0.3.0",
+    "electron-log": "^2.2.14",
     "electron-updater": "^2.21.4",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",

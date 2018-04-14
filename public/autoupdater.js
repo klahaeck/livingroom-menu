@@ -17,12 +17,11 @@ function appUpdater() {
 	You could alsoe use nslog or other logging to see what's happening */
   // autoUpdater.on('error', err => console.log(err));
   // autoUpdater.on('checking-for-update', () => console.log('checking-for-update'));
-  autoUpdater.on('update-available', (info) => console.log('update-available:', info));
+  // autoUpdater.on('update-available', (info) => console.log('update-available:', info));
   // autoUpdater.on('update-not-available', () => console.log('update-not-available'));
 
   // Ask the user if update is available
   autoUpdater.on('update-downloaded', (info) => {
-    console.log(info);
     let message = app.getName() + ' ' + info.releaseName + ' is now available. It will be installed the next time you restart the application.';
     if (info.releaseNotes) {
       const splitNotes = info.releaseNotes.split(/[^\r]\n/);

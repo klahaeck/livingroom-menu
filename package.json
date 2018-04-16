@@ -1,6 +1,6 @@
 {
   "name": "livingroom-menubar",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "author": "Kla Haeck",
   "description": "control the livingromm music from the menubar",
   "private": true,
@@ -34,7 +34,7 @@
     "wait-on": "^2.1.0"
   },
   "build": {
-    "appId": "com.fallon.livingroom-menu",
+    "appId": "com.klahaeck.livingroom-remote",
     "productName": "Livingroom Menu",
     "publish": [
       {
@@ -49,7 +49,7 @@
     },
     "mac": {
       "category": "public.app-category.productivity",
-      "identity": "Mac Developer: kla Haeck (BR7MRQZUY4)"
+      "identity": "klaton Haeck (3YA5EH75F9)"
     }
   }
 }

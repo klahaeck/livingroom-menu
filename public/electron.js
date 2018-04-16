@@ -43,7 +43,7 @@ app.on('ready', () => {
     show: false,
     frame: false,
     resizable: false,
-    darkTheme: true,
+    darkTheme: true
     // skipTaskbar: true
     // useContentSize: true,
     // icon: path.join(__dirname, 'icon.png')

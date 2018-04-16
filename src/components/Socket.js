@@ -1,14 +1,15 @@
 import io from 'socket.io-client';
+import config from '../config';
 
-// const Socket = io('http://localhost:9095'); // DEVELOPMENT
-const Socket = io('https://socket.fallondev.com', {
+const Socket = io(config.socketURL, {
   reconnection: true,
   reconnectionDelay: 1000,
   reconnectionDelayMax : 5000,
   reconnectionAttempts: Infinity
 });
 Socket.on('connect', function() {
-  Socket.emit('room', 'spotify');
+  console.log(config);
+  Socket.emit('room', config.room);
 });
 
 export default Socket;

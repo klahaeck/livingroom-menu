@@ -6,8 +6,5 @@
       "jsx": true
     }
   },
-  "rules": {},
-  "extends": [
-    "plugin:react-app/recommended"
-  ]
+  "rules": {}
 }

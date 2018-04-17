@@ -8,7 +8,6 @@ const Socket = io(config.socketURL, {
   reconnectionAttempts: Infinity
 });
 Socket.on('connect', function() {
-  console.log(config);
   Socket.emit('room', config.room);
 });
 

@@ -93,9 +93,11 @@ const showWindow = () => {
     y = Math.round(trayPos.y + trayPos.height * 10);
   }
 
+  window.setVisibleOnAllWorkspaces(true);
   window.setPosition(x, y, false);
   window.show();
   window.focus();
+  window.setVisibleOnAllWorkspaces(false);
 };
 
 app.on('window-all-closed', () => {

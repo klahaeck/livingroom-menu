@@ -5,6 +5,7 @@ import PlayPause from './components/PlayPause';
 import ButtonTrack from './components/ButtonTrack';
 import VolumeControl from './components/VolumeControl';
 import TextSpeak from './components/TextSpeak';
+import Sector from './components/Sector';
 
 import './neon-glow/css/bootstrap4-neon-glow.min.css';
 import './App.css';
@@ -33,6 +34,11 @@ class App extends Component {
           <Row>
             <Col>
               <TextSpeak buttonLabel="Speak Text" />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Sector />
             </Col>
           </Row>
         </Container>

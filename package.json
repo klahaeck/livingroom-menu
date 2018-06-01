@@ -1,20 +1,23 @@
 {
   "name": "livingroom-menubar",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Kla Haeck",
   "description": "control the livingromm music from the menubar",
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "electron-is-dev": "^0.3.0",
     "electron-log": "^2.2.14",
     "electron-updater": "^2.21.4",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "react-socket-io": "^0.2.4",
-    "reactstrap": "^5.0.0"
+    "reactstrap": "^5.0.0",
+    "redux": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

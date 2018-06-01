@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 import Socket from './Socket';
-// import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-// import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee';
 
 class Status extends Component {
   constructor(props) {
@@ -13,27 +11,19 @@ class Status extends Component {
       title: 'loading status...'
     };
 
-    Socket.on('status', data => {
-      const title = `${data.artist} - ${data.track}`;
-      this.setState({status: data, title});
+    Socket.on('status', status => {
+      const title = this.getTitle(status);
+      this.setState({ status, title });
     });
-
-    Socket.emit('getinfo');
-
+  
     setInterval(() => {
       Socket.emit('getinfo');
     }, 10000);
-    Socket.emit('getinfo');
   }
 
-  // getData() {
-  //   fetch('https://socket.fallondev.com/spotify/getinfo', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     }
-  //   });
-  // }
+  getTitle(status) {
+    return `${status.artist} - ${status.track}`;
+  }
 
   render() {
     return (

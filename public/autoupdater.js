@@ -45,6 +45,10 @@ function appUpdater() {
   });
   // init for updates
   autoUpdater.checkForUpdates();
+
+  setInterval(() => {
+    autoUpdater.checkForUpdates();
+  }, 1000 * 60 * 60);
 }
 
 exports = module.exports = {

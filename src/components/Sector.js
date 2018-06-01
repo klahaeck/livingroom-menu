@@ -1,37 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import { Input } from 'reactstrap';
-import Storage from './Storage';
-import Socket from './Socket';
+import { setSector } from '../store/actions/index';
 
-class Sector extends Component {
-  constructor(props) {
-    super(props);
+const mapStateToProps = state => {
+  return {
+    sectors: state.sectors,
+    sector: state.sector
+  };
+};
 
-    this.sectors = Storage.sectors;
+const mapDispatchToProps = dispatch => {
+  return {
+    setSector: sector => dispatch(setSector(sector))
+  };
+};
 
-    this.state = {
-      sector: Storage.getSector()
-    };
+const Sector = ({sectors, sector, setSector}) => {
+  const handleSectorChange = (event) => {
+    setSector(event.target.value);
+  };
 
-    this.handleSectorChange = this.handleSectorChange.bind(this);
-  }
+  return (
+    <div>
+      <Input type="select" className="custom-select" name="selectvoice" id="selectvoice" value={sector.value} onChange={handleSectorChange}>{sectors.map((s, i) => <option key={i} value={s.value}>{s.name}</option>)}</Input>
+    </div>
+  );
+};
 
-  handleSectorChange(event) {
-    const sector = this.sectors.find(function(element) {
-      return element.value === event.target.value;
-    });
-    Storage.setSector(sector);
-    this.setState({sector});
-    Socket.emit('room', `spotify-${sector.value}`);
-  }
-
-  render() {
-    return (
-      <div>
-        <Input type="select" className="custom-select" name="selectvoice" id="selectvoice" value={this.state.sector.value} onChange={this.handleSectorChange}>{this.sectors.map((sector, i) => <option key={i} value={sector.value}>{sector.name}</option>)}</Input>
-      </div>
-    );
-  }
-}
-
-export default Sector;
+export default connect(mapStateToProps, mapDispatchToProps)(Sector);

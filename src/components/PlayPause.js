@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button } from 'reactstrap';
 import Socket from './Socket';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 // import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee';
 
-class PlayPause extends Component {
-  onClickHandler() {
+const PlayPause = () => {
+  const onClickHandler = () => {
     // fetch('https://socket.fallondev.com/spotify/playpause', {
     //   method: 'POST',
     //   headers: {
@@ -13,13 +13,11 @@ class PlayPause extends Component {
     //   }
     // });
     Socket.emit('playpause');
-  }
+  };
 
-  render() {
-    return (
-      <Button className="btn-primary btn-sm w-100" onClick={() => this.onClickHandler()}>Play/Pause</Button>
-    );
-  }
-}
+  return (
+    <Button className="btn-primary btn-sm w-100" onClick={() => onClickHandler()}>Play/Pause</Button>
+  );
+};
 
 export default PlayPause;

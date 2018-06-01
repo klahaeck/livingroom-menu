@@ -7,6 +7,7 @@ const Socket = io(config.socketURL, {
   reconnectionDelayMax : 5000,
   reconnectionAttempts: Infinity
 });
+
 Socket.on('connect', function() {
   Socket.emit('room', config.room);
 });

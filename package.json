@@ -1,8 +1,8 @@
 {
   "name": "livingroom-menubar",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Kla Haeck",
-  "description": "control the livingromm music from the menubar",
+  "description": "control the Fallon Spotify players from the menubar",
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",

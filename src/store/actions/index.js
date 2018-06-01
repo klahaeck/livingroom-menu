@@ -1,6 +1,6 @@
 import {
   SET_SECTOR,
-  // SET_STATUS,
+  SET_STATUS,
   TOGGLE_MODAL,
   SET_VOICE,
   SET_TEXT
@@ -11,10 +11,10 @@ export const setSector = sector => ({
   payload: sector
 });
 
-// export const setStatus = status => ({
-//   type: SET_STATUS,
-//   payload: status
-// });
+export const setStatus = status => ({
+  type: SET_STATUS,
+  payload: status
+});
 
 export const toggleModal = state => ({
   type: TOGGLE_MODAL,

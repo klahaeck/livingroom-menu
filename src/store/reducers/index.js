@@ -1,7 +1,7 @@
 import Socket from '../../components/Socket';
 import {
   SET_SECTOR,
-  // SET_STATUS,
+  SET_STATUS,
   TOGGLE_MODAL,
   SET_VOICE,
   SET_TEXT
@@ -26,7 +26,7 @@ const findSector = (sector) => {
 const initialState = {
   sectors,
   sector: JSON.parse(localStorage.getItem('sector')) || sectors[0],
-  // status: {},
+  status: {},
   modal: false,
   voices,
   voice: '',
@@ -39,8 +39,8 @@ const rootReducer = (state = initialState, action) => {
     Socket.emit('room', `spotify-${findSector(action.payload).value}`);
     localStorage.setItem('sector', JSON.stringify(findSector(action.payload)));
     return { ...state, sector: findSector(action.payload) };
-  // case SET_STATUS:
-  //   return { ...state, status: action.payload };
+  case SET_STATUS:
+    return { ...state, status: action.payload };
   case TOGGLE_MODAL:
     return { ...state, modal: action.payload };
   case SET_VOICE:
